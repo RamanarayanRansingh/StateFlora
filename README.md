@@ -61,7 +61,7 @@ The system implements a robust vector synchronization system using ChromaDB with
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/StatefulFlora.git
+git clone https://github.com/RamanarayanRansingh/StateFlora.git
 cd StatefulFlora
 
 # Create and activate virtual environment
