@@ -1,6 +1,6 @@
 # StatefulFlora
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 > A LangGraph Architecture for Secure Conversational Commerce with Persistent Context and Human-in-the-Loop Verification
 
@@ -150,7 +150,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
 
 ## 👏 Acknowledgments
 
