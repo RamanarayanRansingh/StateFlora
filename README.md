@@ -77,6 +77,44 @@ cp .env.example .env
 # Edit .env with your API keys and configuration
 ```
 
+## 📝 Running the Application
+
+### FastAPI Backend
+
+The StateFlora backend is built with FastAPI, which provides the API endpoints for the chatbot functionality.
+
+1. Start the FastAPI server:
+   ```bash
+   # Navigate to the backend directory
+   cd backend
+   
+   # Start the FastAPI server with hot reload enabled
+   uvicorn app.main:app --reload
+   ```
+
+2. The API documentation will be available at:
+   ```
+   http://localhost:8000/docs
+   ```
+
+### Streamlit Frontend
+
+The user interface is built with Streamlit for an interactive chat experience.
+
+1. Start the Streamlit application:
+   ```bash
+   # Navigate to the frontend directory
+   cd frontend
+   
+   # Run the Streamlit app
+   streamlit run app.py
+   ```
+
+2. Access the web interface at:
+   ```
+   http://localhost:8501
+   ```
+
 ## 📝 Example Use Cases
 
 The system excels in the following scenarios:
