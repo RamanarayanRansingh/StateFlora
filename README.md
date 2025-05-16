@@ -6,7 +6,7 @@
 
 StatefulFlora is an innovative conversational AI agent for floral retail that addresses critical challenges in e-commerce automation through a stateful architecture built on LangGraph.
 
-![System Architecture Overview](images/fig_1)
+![System Architecture Overview](images/fig1.png)
 
 ## 🌟 Key Features
 
@@ -23,7 +23,7 @@ StatefulFlora's architecture consists of three main components:
 2. **SQLite Database**: Stores customer information, product inventory, order history, and conversation checkpoints
 3. **ChromaDB Vector Store**: Enables semantic search for product recommendations and FAQ retrieval based on natural language queries
 
-![LangGraph State Machine](assets/langgraph_state_machine.png)
+![LangGraph State Machine](images/graph.png)
 
 ## 💡 Core Innovations
 
@@ -38,7 +38,7 @@ Tools are categorized into "safe" operations that can proceed automatically and 
 - **Safe Tools**: Operations that read but don't modify critical state (check_order_status, list_orders, query_faqs, get_product_recommendations)
 - **Sensitive Tools**: Operations that modify critical state (place_order, cancel_order)
 
-![Human Verification Workflow](assets/human_verification.png)
+![Human Verification Workflow](images/streamlit screen shots/1.png)
 
 ### 3. Real-Time Vector Database Synchronization
 
