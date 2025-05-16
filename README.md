@@ -38,13 +38,11 @@ Tools are categorized into "safe" operations that can proceed automatically and 
 - **Safe Tools**: Operations that read but don't modify critical state (check_order_status, list_orders, query_faqs, get_product_recommendations)
 - **Sensitive Tools**: Operations that modify critical state (place_order, cancel_order)
 
-![Human Verification Workflow](images/streamlit screen shots/1.png)
-
 ### 3. Real-Time Vector Database Synchronization
 
 The system implements a robust vector synchronization system using ChromaDB with SentenceTransformer embeddings, ensuring recommendations reflect current inventory and preventing out-of-stock suggestions.
 
-![Inventory-Aware Recommendations](assets/inventory_recommendations.png)
+![Inventory-Aware Recommendations](images/streamlit_screen_shots/1.png)
 
 ## 🚀 Getting Started
 
@@ -76,46 +74,26 @@ cp .env.example .env
 # Edit .env with your API keys and configuration
 ```
 
-### Basic Usage
-
-```python
-from statefulflora import StatefulFloraAgent
-
-# Initialize the agent
-agent = StatefulFloraAgent(
-    db_path="statefulflora.db",
-    vector_db_path="./vector_store"
-)
-
-# Start a conversation
-response = agent.chat("I'm looking for a bouquet for my mother's birthday")
-print(response)
-
-# Continue conversation in a new session with context preserved
-response = agent.chat("What were those flowers we were discussing yesterday?")
-print(response)
-```
-
 ## 📝 Example Use Cases
 
 The system excels in the following scenarios:
 
 ### 1. Context Retention Across Sessions
 
-![Context Retention Across Sessions](assets/context_retention.png)
+![Context Retention Across Sessions](images/streamlit_screen_shots/2.png)
 
 The system maintains context (preferences, occasion, delivery timing) across multiple sessions through SQLite persistence, creating a seamless continuation of the shopping journey.
 
 ### 2. Human Verification for Sensitive Operations
 
-![Human Verification for Order Placement](assets/place_order_verification.png)
-![Human Verification for Order Cancellation](assets/cancel_order_verification.png)
+![Human Verification for Order Placement](images/streamlit_screen_shots/3.png)
+![Human Verification for Order Cancellation](images/streamlit_screen_shots/4.png)
 
 The hybrid tool routing system identifies sensitive operations (order placement, cancellation) and routes them for human verification before processing.
 
 ### 3. Inventory-Aware Recommendations
 
-![Inventory-Aware Recommendations](assets/inventory_recommendations.png)
+![Inventory-Aware Recommendations](images/streamlit_screen_shots/5.png)
 
 The real-time vector database synchronization prevents recommending out-of-stock items and enables semantic understanding of natural language queries like "similar arrangement."
 
