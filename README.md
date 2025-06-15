@@ -1,62 +1,85 @@
 # StatefulFlora
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.95.0-green.svg)](https://fastapi.tiangolo.com/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.22.0-red.svg)](https://streamlit.io/)
+<div align="center">
+  <img src="images/statefulflora_logo.png" alt="StatefulFlora Logo" width="200"/>
+  
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+  [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+  [![FastAPI](https://img.shields.io/badge/FastAPI-0.95.0-green.svg)](https://fastapi.tiangolo.com/)
+  [![Streamlit](https://img.shields.io/badge/Streamlit-1.22.0-red.svg)](https://streamlit.io/)
+  
+  **A LangGraph Architecture for Secure Conversational Commerce with Persistent Context and Human-in-the-Loop Verification**
+</div>
 
-> A LangGraph Architecture for Secure Conversational Commerce with Persistent Context and Human-in-the-Loop Verification
+---
 
-StatefulFlora is an innovative conversational AI agent for floral retail that addresses critical challenges in e-commerce automation through a stateful architecture built on LangGraph.
+## 🌸 Overview
 
-![System Architecture Overview](images/fig1.png)
+StatefulFlora is an innovative conversational AI agent for floral retail that revolutionizes e-commerce automation through a stateful architecture built on LangGraph. Our system addresses critical challenges in automated customer service by maintaining persistent context, ensuring transaction security, and providing intelligent inventory-aware recommendations.
 
-## 🌟 Key Features
+<div align="center">
+  <img src="images/fig1.png" alt="System Architecture Overview" width="800"/>
+  <p><i>System Architecture Overview</i></p>
+</div>
 
-- **Persistent Context Management** - Maintains dialogue and transaction state across multiple sessions using SQLite persistence
-- **Secure Transaction Handling** - Balances automation with appropriate safeguards via hybrid tool routing system
-- **Inventory-Aware Recommendations** - Synchronizes semantic product recommendations with rapidly changing inventory
-- **Human-in-the-Loop Security** - Implements verification workflows for sensitive operations
+## ✨ Key Innovations
+
+### 🧠 **Persistent Context Management**
+Maintains dialogue and transaction state across multiple sessions using SQLite persistence, ensuring customers never lose their shopping progress.
+
+### 🔒 **Secure Transaction Handling** 
+Balances automation efficiency with security through our hybrid tool routing system that requires human verification for sensitive operations.
+
+### 🎯 **Inventory-Aware Recommendations**
+Synchronizes semantic product recommendations with real-time inventory data to prevent disappointing out-of-stock suggestions.
+
+### 👥 **Human-in-the-Loop Security**
+Implements intelligent verification workflows that maintain security without sacrificing user experience.
 
 ## 🏗️ System Architecture
 
-StatefulFlora's architecture consists of three main components:
+StatefulFlora's robust architecture consists of three interconnected components:
 
-1. **LangGraph State Machine**: A cyclic state graph that manages conversation flow, tool routing, and conversation history persistence
-2. **SQLite Database**: Stores customer information, product inventory, order history, and conversation checkpoints
-3. **ChromaDB Vector Store**: Enables semantic search for product recommendations and FAQ retrieval based on natural language queries
+<div align="center">
+  <img src="images/graph.png" alt="LangGraph State Machine" width="600"/>
+  <p><i>LangGraph State Machine Flow</i></p>
+</div>
 
-![LangGraph State Machine](images/graph.png)
+### Core Components
 
-## 💡 Core Innovations
+1. **🔄 LangGraph State Machine**: Manages conversation flow, tool routing, and history persistence through a cyclic state graph
+2. **🗄️ SQLite Database**: Stores customer profiles, product inventory, order history, and conversation checkpoints
+3. **🔍 ChromaDB Vector Store**: Enables semantic search for product recommendations and FAQ retrieval
 
-### 1. Cyclic State Machine with SQLite Persistence
+## 💡 Technical Highlights
 
-The system implements a stateful architecture combining LangGraph's cyclic state machine with SQLite persistence to maintain conversation and transaction history across sessions, ensuring seamless continuation of customer interactions.
+### Cyclic State Machine with SQLite Persistence
+Our stateful architecture combines LangGraph's cyclic state machine with SQLite persistence, ensuring seamless conversation continuation across sessions and maintaining complete transaction history.
 
-### 2. Hybrid Tool Routing with Human Verification
+### Hybrid Tool Routing System
+Tools are intelligently categorized for optimal security and efficiency:
 
-Tools are categorized into "safe" operations that can proceed automatically and "sensitive" operations requiring human verification:
+| **Safe Operations** | **Sensitive Operations** |
+|---------------------|--------------------------|
+| ✅ Check order status | ⚠️ Place new orders |
+| ✅ List order history | ⚠️ Cancel existing orders |
+| ✅ Query FAQs | ⚠️ Modify customer data |
+| ✅ Get recommendations | ⚠️ Process payments |
 
-- **Safe Tools**: Operations that read but don't modify critical state (check_order_status, list_orders, query_faqs, get_product_recommendations)
-- **Sensitive Tools**: Operations that modify critical state (place_order, cancel_order)
+### Real-Time Vector Synchronization
+ChromaDB with SentenceTransformer embeddings ensures recommendations always reflect current inventory, preventing customer disappointment from out-of-stock suggestions.
 
-### 3. Real-Time Vector Database Synchronization
-
-The system implements a robust vector synchronization system using ChromaDB with SentenceTransformer embeddings, ensuring recommendations reflect current inventory and preventing out-of-stock suggestions.
-
-![Inventory-Aware Recommendations](images/streamlit_screen_shots/1.png)
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- Python 3.9+
-- LangGraph
-- SQLite
-- ChromaDB
-- SentenceTransformers
-- Gemini 2.0 Flash API access
+```bash
+Python 3.9+
+LangGraph
+SQLite
+ChromaDB
+SentenceTransformers
+Gemini 2.0 Flash API access
+```
 
 ### Installation
 
@@ -65,110 +88,84 @@ The system implements a robust vector synchronization system using ChromaDB with
 git clone https://github.com/RamanarayanRansingh/StateFlora.git
 cd StatefulFlora
 
-# Create and activate virtual environment
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Set up environment variables
+# Configure environment
 cp .env.example .env
-# Edit .env with your API keys and configuration
+# Edit .env with your API keys
 ```
 
-## 📝 Running the Application
+## 🎮 Running the Application
 
-### FastAPI Backend
+### 🔧 FastAPI Backend
+```bash
+cd backend
+uvicorn app.main:app --reload
+```
+**API Documentation**: http://localhost:8000/docs
 
-The StateFlora backend is built with FastAPI, which provides the API endpoints for the chatbot functionality.
+### 🖥️ Streamlit Frontend
+```bash
+cd frontend
+streamlit run app.py
+```
+**Web Interface**: http://localhost:8501
 
-1. Start the FastAPI server:
-   ```bash
-   # Navigate to the backend directory
-   cd backend
-   
-   # Start the FastAPI server with hot reload enabled
-   uvicorn app.main:app --reload
-   ```
+## 📱 Use Cases & Screenshots
 
-2. The API documentation will be available at:
-   ```
-   http://localhost:8000/docs
-   ```
+### 🎯 Inventory-Aware Recommendations
 
-### Streamlit Frontend
+![Inventory-Aware Recommendations](images/streamlit_screen_shots/1.png)
 
-The user interface is built with Streamlit for an interactive chat experience.
+The real-time vector database synchronization prevents recommending out-of-stock items and enables semantic understanding of natural language queries.
 
-1. Start the Streamlit application:
-   ```bash
-   # Navigate to the frontend directory
-   cd frontend
-   
-   # Run the Streamlit app
-   streamlit run app.py
-   ```
-
-2. Access the web interface at:
-   ```
-   http://localhost:8501
-   ```
-
-## 📝 Example Use Cases
-
-The system excels in the following scenarios:
-
-### 1. Context Retention Across Sessions
+### 🔄 Context Retention Across Sessions
 
 ![Context Retention Across Sessions](images/streamlit_screen_shots/2.png)
 
 The system maintains context (preferences, occasion, delivery timing) across multiple sessions through SQLite persistence, creating a seamless continuation of the shopping journey.
 
-### 2. Human Verification for Sensitive Operations
+### 🛡️ Human Verification for Sensitive Operations
 
 ![Human Verification for Order Placement](images/streamlit_screen_shots/3.png)
 ![Human Verification for Order Cancellation](images/streamlit_screen_shots/4.png)
 
 The hybrid tool routing system identifies sensitive operations (order placement, cancellation) and routes them for human verification before processing.
 
-### 3. Inventory-Aware Recommendations
+### 🎯 Advanced Inventory Integration
 
 ![Inventory-Aware Recommendations](images/streamlit_screen_shots/5.png)
 
 The real-time vector database synchronization prevents recommending out-of-stock items and enables semantic understanding of natural language queries like "similar arrangement."
 
-## 📊 Performance
+## 📊 Performance Metrics
 
-StatefulFlora demonstrates significant advantages in context maintenance and security controls compared to other automated solutions, while maintaining good user experience.
+| **Feature** | **Performance** | **Key Benefits** |
+|-------------|----------------|------------------|
+| 🧠 Context Retention | ⭐⭐⭐⭐⭐ | Maintains user preferences across sessions |
+| 🔒 Transaction Security | ⭐⭐⭐⭐⭐ | Human verification prevents unauthorized operations |
+| 🗣️ Natural Language Understanding | ⭐⭐⭐⭐ | Handles complex conversational queries |
+| 📦 Inventory Integration | ⭐⭐⭐⭐⭐ | Real-time synchronization prevents stock issues |
+| ⚡ Response Time | ⭐⭐⭐⭐ | Optimized for user experience |
 
-| Feature | Performance Assessment | Key Observations |
-|---------|------------------------|------------------|
-| Context Retention | Strong | System successfully maintains user preferences and order details across multiple sessions |
-| Transaction Security | Very Strong | Human verification prevents unauthorized operations while permission-based tool routing allows automation of safe actions |
-| Natural Language Understanding | Moderate to Strong | System handles most conversational queries appropriately |
-| Inventory Integration | Strong | Real-time vector synchronization prevents recommendations of out-of-stock items |
-| Response Time | Moderate | Additional security and state persistence layers add slight latency but remain within acceptable thresholds |
+## 🏢 Implementation Considerations
 
-## 🔍 Implementation Considerations
+### For Organizations
+- **Domain Expertise**: Requires understanding of risk levels for proper tool classification
+- **System Integration**: SQLite layer needs integration with existing e-commerce systems
+- **Staff Training**: Human verification handlers need proper training for peak periods
 
-Organizations considering the adoption of this approach should consider several practical factors:
-
-1. **Domain-Specific Knowledge Requirements**: Implementing the tool classification system requires domain expertise to properly categorize operations based on risk levels
-2. **Integration Complexity**: The SQLite persistence layer requires integration with existing e-commerce databases and inventory management systems
-3. **Human Resource Planning**: Staff must be trained to handle verification requests efficiently, particularly during peak periods
-
-## 🧩 Architectural Variations
-
-Several architectural variations can address different deployment scenarios:
-
-1. **Lightweight Implementation**: For smaller retailers, the system can be simplified by using in-memory databases with periodic backups instead of full SQLite persistence
-2. **Enterprise Scale**: For large retailers, the SQLite database can be replaced with distributed databases like PostgreSQL or MongoDB for improved concurrency
-3. **Multi-Modal Extension**: The framework can be extended to support image-based product search by integrating multi-modal embedding models
+### Architectural Variations
+- **🏪 Lightweight**: In-memory databases for smaller retailers
+- **🏢 Enterprise**: PostgreSQL/MongoDB for high-concurrency environments
+- **🖼️ Multi-Modal**: Image-based product search with multi-modal embeddings
 
 ## 📚 Citation
-
-If you use StatefulFlora in your research, please cite our paper:
 
 ```bibtex
 @article{ransingh2025statefulflora,
@@ -181,18 +178,35 @@ If you use StatefulFlora in your research, please cite our paper:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions! Here's how to get started:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. 🍴 Fork the repository
+2. 🌿 Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. 💾 Commit your changes (`git commit -m 'Add amazing feature'`)
+4. 📤 Push to the branch (`git push origin feature/amazing-feature`)
+5. 🔄 Open a Pull Request
+
+## 📋 Roadmap
+
+- [ ] 🌐 Multi-language support
+- [ ] 📱 Mobile app integration
+- [ ] 🔗 Advanced API integrations
+- [ ] 📈 Analytics dashboard
+- [ ] 🤖 ML-powered demand forecasting
 
 ## 📄 License
 
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## 👏 Acknowledgments
+## 🙏 Acknowledgments
 
-- The authors thank the reviewers for their valuable feedback and the retail partners who participated in the case study evaluation.
+- The authors thank the reviewers for their valuable feedback
+- Special thanks to our retail partners who participated in the case study evaluation
+- The open-source community for the amazing tools that made this project possible
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by the StatefulFlora team</p>
+  <p>⭐ Star us on GitHub if you find this project helpful!</p>
+</div>
